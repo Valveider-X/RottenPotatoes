@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-function GameDetails(props) {
-  const params = useParams()
+function GameDetails() {
+  //const params = useParams()
   
-  const [gameDetails, setGameDetails] = useState([])
+  const [game, setGame] = useState(null)
   
   
   useEffect(()=>{
@@ -14,9 +14,10 @@ function GameDetails(props) {
   },[])
 
   const getData=()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/games/${params.gameId}?key=${import.meta.env.VITE_API_KEY}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/games/:id)}?key=${import.meta.env.VITE_API_KEY}`)
+
     .then((response)=>{
-      setGameDetails(response.data.results)
+      setGame(response.data.results)
       console.log(response.data.results)
       
     })
@@ -26,20 +27,25 @@ function GameDetails(props) {
   }
 
 
+  if (game === null){
+    return <p>ESPERANDO RESPUESTA...</p>
+  }
 
 
   return (
     <div>
       <p>GameDetails</p>
-      {
-      <div className="game-card">
-            <img src={props.game.background_image}
+      
+        {game.map((game, i)=>{
+      <div key={i}className="game-card">
+            <img src={game.background_image}
             style={{height: "100px"}}
-            alt={"gameName"}/>
-            <h3>{props.game.name}</h3>
-            <h4>{props.game.released}</h4>
-            <h4>{props.game.rating}</h4>
+            alt={"pito"}/>
+            <h3>{game.name}</h3>
+            <h4>{game.released}</h4>
+            <h4>{game.rating}</h4>
             </div>
+        })
       }
             
       

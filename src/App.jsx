@@ -48,11 +48,11 @@ function App() {
         <Route path="/genres" element={<Genres />} />
         <Route path="/genres-games" element={<GenresGames />} />
         <Route path="/games" element={<GamesList />} />
-        <Route path="/games/:gameId" element={<GameDetails />} />
+        <Route path="/game/:id" element={<GameDetails />} />
         <Route path="/game-reviews" element={<GameReviews />} />
         <Route path="/game-completion" element={<GameCompletion />} />
         <Route path="/error" element={<Error />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<About />} />
       </Routes>
 

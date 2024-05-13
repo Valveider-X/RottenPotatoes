@@ -27,7 +27,7 @@ function GamesList() {
     {gamesList.map((game, i)=>{
       return(
         <div key={i}>
-          <Link to={"/game/" + game.id}> 
+          <Link to={"/game/"+game.id}> 
           <div className="game-card">
             <img src={game.background_image}
             style={{height: "100px"}}
