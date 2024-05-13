@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, CSSProperties } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -19,9 +19,17 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+
 import "./App.css";
 
+
+
+
 function App() {
+
+ 
+
+
   //useState para pasar como props
 /*  const [gamesList, setGamesList] = useState(null)
 
@@ -38,13 +46,18 @@ function App() {
   },[])*/
 
   return (
+
+
+
+    
     <>
+ 
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home /*gamesList={gamesList} setGamesList={setGamesList}*//>} />
         <Route path="/platforms" element={<Platforms/>} />
-        <Route path="/platforms-games" element={<PlatformsGames />} />
+        <Route path="/platforms/:games" element={<PlatformsGames />} />
         <Route path="/genres" element={<Genres />} />
         <Route path="/genres-games" element={<GenresGames />} />
         <Route path="/games" element={<GamesList />} />

@@ -17,7 +17,7 @@ function Platforms() {
   },[])
 
   if(platforms === null){
-    return <p>GOKU VIVE LA LUCHA SIGUE</p>
+    return <p>GOKU VIVE, LA LUCHA SIGUE</p>
   }
 
 
@@ -27,7 +27,7 @@ function Platforms() {
       {platforms.map((platforms, i)=>{
         return(
           <div key={i}>
-            <Link to={"/platforms"}>
+            <Link to={"/platforms/:games"}>
               <div className={"platforms"}>
                 <img src={platforms.image_background} style={{height:"200px"}}/>
                 <h3>{platforms.name}</h3>

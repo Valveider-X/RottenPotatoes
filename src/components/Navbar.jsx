@@ -11,8 +11,8 @@ function Navbar() {
     <Link to="/platforms-games">plataformas games</Link>
     <Link to="/genres">generos</Link>
     <Link to="/genres-games">generos geims</Link>
-    <Link to="/games-list">games list</Link>
-    <Link to="/game-details">games details</Link>
+    <Link to="/games">games list</Link>
+   
     <Link to="/game-reviews">revius</Link>
     <Link to="/game-completion">compleishon</Link>
     <Link to="/error">es de prueba no me funen</Link>
