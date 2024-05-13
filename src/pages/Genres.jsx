@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { PacmanLoader } from 'react-spinners'
 
 //genres
 
@@ -18,7 +19,10 @@ useEffect(()=>{
 },[])
 
 if (genres === null){
-  return <p>ESPERA UN PCOO CARAJO!</p>
+  return <PacmanLoader
+  color={"yellow"}
+  size={50}
+  />
 }
   
 

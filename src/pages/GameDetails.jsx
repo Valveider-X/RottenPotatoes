@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { PacmanLoader } from 'react-spinners'
 
 
 function GameDetails() {
@@ -30,7 +31,10 @@ function GameDetails() {
 
 
   if (game === null){
-    return <p>Cargando...</p>
+    return <PacmanLoader
+    color={"yellow"}
+    size={50}
+    />
   }
 
 

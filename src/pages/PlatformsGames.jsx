@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import { PacmanLoader } from 'react-spinners'
 
 
 function PlatformsGames() {
@@ -13,7 +14,7 @@ function PlatformsGames() {
 
   const[platformsGames, setPlatformsGames]=useState(null)
   useEffect(()=>{
-  axios.get(`${import.meta.env.VITE_API_URL}/games?platform=${params.name}&key=${import.meta.env.VITE_API_KEY}`)
+  axios.get(`${import.meta.env.VITE_API_URL}/games?platform=${params.id}&key=${import.meta.env.VITE_API_KEY}`)
     .then((response)=>{
       setPlatformsGames(response.data.results)
       console.log(response.data.results);
@@ -25,7 +26,10 @@ function PlatformsGames() {
 
   },[])
   if(platformsGames===null){
-    return <p>pacman...</p>
+    return <PacmanLoader
+    color={"yellow"}
+    size={50}
+    />
   }
   return (
     <div>

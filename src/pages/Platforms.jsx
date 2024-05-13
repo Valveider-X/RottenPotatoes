@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { PacmanLoader } from 'react-spinners'
 
 function Platforms() {
   const [platforms, setPlatforms] = useState(null)
@@ -17,7 +18,10 @@ function Platforms() {
   },[])
 
   if(platforms === null){
-    return <p>GOKU VIVE, LA LUCHA SIGUE</p>
+    return <PacmanLoader
+    color={"yellow"}
+    size={50}
+    />
   }
 
 

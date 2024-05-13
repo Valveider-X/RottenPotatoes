@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import GameDetails from './GameDetails'
-import ClipLoader from "react-spinners/ClipLoader"
+import { PacmanLoader } from 'react-spinners'
+
 
 
 function GamesList() {
@@ -20,7 +21,10 @@ function GamesList() {
   },[])
 
   if (gamesList === null){
-    return <p>ESPERANDO RESPUESTA...</p>
+    return <PacmanLoader
+    color={"yellow"}
+    size={50}
+    />
   }
 
   return (
