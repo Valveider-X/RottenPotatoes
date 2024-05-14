@@ -1,8 +1,12 @@
 import React from 'react'
+import FormReview from '../components/FormReview'
+
 
 function GameReviews() {
   return (
-    <div>GameReviews</div>
+    <div>GameReviews
+    <FormReview/>
+    </div>
   )
 }
 
