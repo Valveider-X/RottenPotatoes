@@ -4,6 +4,11 @@ function FormReview() {
 
   const [nameValue, setNameValue]=useState("")
 
+  const handleNameChange=(e)=>{
+   // console.log("escribiendo", e.target.value);
+    setNameValue(e.target.value.toUpperCase().replace("ALFONSO", "ALFONSO MANUEL"))
+  }
+
   return (
     <div>
       FormReview
@@ -11,7 +16,7 @@ function FormReview() {
       <form>
         <div>
           <label>Name:</label>
-          <input type="text" name="name" value={nameValue}/>
+          <input type="text" name="name" value={nameValue} onChange={handleNameChange}/>
         </div>
 
         <div>
