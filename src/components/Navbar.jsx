@@ -12,37 +12,37 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function MyNavbar() {
   return (
     
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          <img src={Logo} alt="Logo" style={{height: "80px"}}/>
+        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+            navbarScroll>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/platforms">Plataformas</Nav.Link>
+            <Nav.Link as={Link} to="/genres">Géneros</Nav.Link>
+            <Nav.Link as={Link} to="/games">Lista de Juegos</Nav.Link>
+            <Nav.Link as={Link} to="/game-reviews">Reseñas</Nav.Link>
+            <Nav.Link as={Link} to="/game-completion">Completion</Nav.Link>
+
+            <NavDropdown title="Dropdown" id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/action1">Action 1</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/action2">Action 2</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/action3">Action 3</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
+              className="searchBar"
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
