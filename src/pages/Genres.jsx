@@ -28,13 +28,13 @@ if (genres === null){
 
   return (
     <div>Genres
-      {genres.map((genres, i)=>{
+      {genres.map((eachGenre, i)=>{
         return(
           <div key={i} >
-            <Link to={"/genres"}>
-              <div className="genres-card">
-              <img src={genres.image_background} style={{height:"200px"}}/>
-              <h3>{genres.name}</h3>
+            <Link to={"/genres/"+eachGenre.id}>
+              <div className={"genres-card"}>
+              <img src={eachGenre.image_background} style={{height:"200px"}}/>
+              <h3>{eachGenre.name}</h3>
               </div>
             </Link>
             

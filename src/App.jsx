@@ -59,11 +59,11 @@ function App() {
         <Route path="/" element={<Home /*gamesList={gamesList} setGamesList={setGamesList}*//>} />
         <Route path="/platforms" element={<Platforms/>} />
         <Route path="/platforms/:id" element={<PlatformsGames />} />
-        <Route path="/genres" element={<Genres />} />
-        <Route path="/genres-games" element={<GenresGames />} />
+        <Route path="/genres/" element={<Genres />} />
+        <Route path="/genres-games/:id" element={<GenresGames />} />
         <Route path="/games" element={<GamesList />} />
         <Route path="/game/:id" element={<GameDetails />} />
-        <Route path="/game-reviews/:id" element={<GameReviews />} />
+        <Route path="/game-reviews/" element={<GameReviews />} />
         <Route path="/game-completion/:id" element={<GameCompletion />} />
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />

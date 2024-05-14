@@ -13,6 +13,7 @@ function PlatformsGames() {
  // console.log(params);
 
   const[platformsGames, setPlatformsGames]=useState(null)
+  
   useEffect(()=>{
   axios.get(`${import.meta.env.VITE_API_URL}/games?platforms=${params.id}&key=${import.meta.env.VITE_API_KEY}`)
     .then((response)=>{
@@ -36,7 +37,7 @@ function PlatformsGames() {
       {platformsGames.map((eachGame, i)=>{
         return(
           <div key={i}>
-      <Link to={"/platforms/"+eachGame.id}>
+      <Link to={"/game/"+eachGame.id}>
       <div className="game-card">
             <img src={eachGame.background_image}
             style={{height: "100px"}}
