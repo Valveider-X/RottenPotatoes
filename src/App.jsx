@@ -58,7 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home /*gamesList={gamesList} setGamesList={setGamesList}*//>} />
         <Route path="/platforms" element={<Platforms/>} />
-        <Route path="/platforms/:games" element={<PlatformsGames />} />
+        <Route path="/platforms/:id" element={<PlatformsGames />} />
         <Route path="/genres" element={<Genres />} />
         <Route path="/genres-games" element={<GenresGames />} />
         <Route path="/games" element={<GamesList />} />

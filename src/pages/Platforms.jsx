@@ -28,13 +28,13 @@ function Platforms() {
 
   return (
     <div>Platforms
-      {platforms.map((platforms, i)=>{
+      {platforms.map((eachPlatform, i)=>{
         return(
           <div key={i}>
-            <Link to={"/platforms/:games"}>
+            <Link to={"/platforms/"+eachPlatform.id}>
               <div className={"platforms"}>
-                <img src={platforms.image_background} style={{height:"200px"}}/>
-                <h3>{platforms.name}</h3>
+                <img src={eachPlatform.image_background} style={{height:"200px"}}/>
+                <h3>{eachPlatform.name}</h3>
               </div>
 
 

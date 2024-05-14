@@ -14,7 +14,7 @@ function PlatformsGames() {
 
   const[platformsGames, setPlatformsGames]=useState(null)
   useEffect(()=>{
-  axios.get(`${import.meta.env.VITE_API_URL}/games?platform=${params.id}&key=${import.meta.env.VITE_API_KEY}`)
+  axios.get(`${import.meta.env.VITE_API_URL}/games?platforms=${params.id}&key=${import.meta.env.VITE_API_KEY}`)
     .then((response)=>{
       setPlatformsGames(response.data.results)
       console.log(response.data.results);
@@ -36,7 +36,7 @@ function PlatformsGames() {
       {platformsGames.map((games, i)=>{
         return(
           <div key={i}>
-      <Link to={"/game/"+games.id}>
+      <Link to={"/platforms/"+games.id}>
       <div className="game-card">
             <img src={games.background_image}
             style={{height: "100px"}}
