@@ -16,7 +16,7 @@ import Error from "./pages/Error";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 //* Import Componentes
-import Navbar from "./components/Navbar";
+import MyNavbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 
@@ -53,7 +53,7 @@ function App() {
     
     <>
  
-      <Navbar />
+      <MyNavbar />
 
       <Routes>
         <Route path="/" element={<Home /*gamesList={gamesList} setGamesList={setGamesList}*//>} />
