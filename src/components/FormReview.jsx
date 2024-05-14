@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 function FormReview() {
 
   const [nameValue, setNameValue]=useState("")
   const [commentValue, setCommentValue]=useState("")
   const [topping, setTopping]=useState("")
 
+  
 
   const handleNameChange=(e)=>{
    // console.log("escribiendo", e.target.value);
@@ -25,13 +26,13 @@ function FormReview() {
     console.log("entregando");
 
     const newComment={
-
+      gameId:"gameId",
       name: nameValue,
       comment: commentValue,
       ratings:topping,
 
     }
-    console.log("newComment");
+    console.log(newComment);
 
   }
   return (
@@ -40,6 +41,7 @@ function FormReview() {
       <h2>Review</h2>
       <form onSubmit={handleSubmit}>
         <div>
+          
           <label>Name:</label>
           <input type="text" name="name" value={nameValue} onChange={handleNameChange}/>
         </div>
