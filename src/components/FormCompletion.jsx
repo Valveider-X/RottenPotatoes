@@ -3,7 +3,10 @@ import {useState} from "react"
 
 function FormCompletion() {
 
-  
+  const handleSubmit=(e) => {
+    console.log("añadiendo resultados");
+    e.preventDefault()
+  }
 
    <div className=""></div>
 
@@ -13,7 +16,7 @@ function FormCompletion() {
     <div className='completion-form'>
 
     
-    <form>
+    <form onSubmit={handleSubmit}>
       <label >Completion Time:</label><br />
       <input type="radio" id="<10" name="completionTime" value="<10" />
       <label for="<10"> Menos de 10 horas</label><br></br>
@@ -24,7 +27,7 @@ function FormCompletion() {
       <input type="radio" id=">50" name="completionTime" value=">50" />
       <label for=">50"> Mas de 50 horas</label><br></br>
       
-    
+      <button>aiuda</button>
 
     </form>
     </div>
