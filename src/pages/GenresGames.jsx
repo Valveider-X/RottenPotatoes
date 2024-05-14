@@ -9,7 +9,7 @@ import { PacmanLoader } from "react-spinners";
 function GenresGames() {
   const params = useParams();
 
-  const [genresGames, setGenresGames] = useState(null);
+  const [genresGames, setGenresGames] = useState(null)
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/games?genres=${params.id}&key=${import.meta.env.VITE_API_KEY}`)
