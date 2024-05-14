@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
+import { Link } from 'react-router-dom'
 
 
 function GameDetails() {
@@ -54,6 +55,8 @@ function GameDetails() {
             <h4>{game.released}</h4>
             <h4>{game.rating}</h4>
             </div>
+            <Link to={"/game-reviews/"+game.id}> REVIEWS</Link>
+            <Link to={"/game-completion/"+game.id}>COMPLETION</Link>
         
       
             

@@ -33,17 +33,17 @@ function PlatformsGames() {
   }
   return (
     <div>
-      {platformsGames.map((games, i)=>{
+      {platformsGames.map((eachGame, i)=>{
         return(
           <div key={i}>
-      <Link to={"/platforms/"+games.id}>
+      <Link to={"/platforms/"+eachGame.id}>
       <div className="game-card">
-            <img src={games.background_image}
+            <img src={eachGame.background_image}
             style={{height: "100px"}}
-            alt={"gameName" + games.name}/>
-            <h3>{games.name}</h3>
-            <h4>{games.released}</h4>
-            <h4>{games.rating}</h4>
+            alt={"gameName" + eachGame.name}/>
+            <h3>{eachGame.name}</h3>
+            <h4>{eachGame.released}</h4>
+            <h4>{eachGame.rating}</h4>
             
            
 
