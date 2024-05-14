@@ -63,3 +63,10 @@ body{
   color:black
   
 }
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: rgb(229, 247, 129);
+  color:black }
