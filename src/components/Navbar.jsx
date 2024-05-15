@@ -1,49 +1,80 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png"
+import { useState } from 'react';
 //navbar bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Menu from "../assets/images/burger-menu.png"
+import axios from 'axios';
 
 function MyNavbar() {
+  const [searchValue, setSearchValue] = useState("");
+
+
+  const handleSearchChange = (event)=>{
+    setSearchValue(event.target.value);
+  }
+  const handleSearchSubmit = (event) =>{
+    event.preventDefault()
+    axios.get(`${import.meta.env.VITE_API_URL}/games$search=${searchValue}?key=${import.meta.env.VITE_API_KEY}`)
+    .then((response)=>{
+      setSearchValue(response.data.results)
+      console.log(response.data.results)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+    
+    
+  
+
+
+
+
+
+
   return (
     
-    <Navbar expand="lg" className="navbar">
+    <Navbar expand="lg" className="navbar" data-bs-theme="light">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           <img src={Logo} alt="Logo" style={{height: "80px"}}/>
         </Navbar.Brand>
-
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
+
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className="navbar-links"
             style={{ maxHeight: '100px' }}
             navbarScroll>
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/platforms">Plataformas</Nav.Link>
-            <Nav.Link as={Link} to="/genres">Géneros</Nav.Link>
-            <Nav.Link as={Link} to="/games">Lista de Juegos</Nav.Link>
+              {/*<NavDropdown.Divider />*/}
             <Nav.Link as={Link} to="/game-reviews">Reseñas</Nav.Link>
             <Nav.Link as={Link} to="/game-completion">Completion</Nav.Link>
 
-            <NavDropdown title="Dropdown" id="navbarScrollingDropdown">
-              <NavDropdown.Item as={Link} to="/action1">Action 1</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/action2">Action 2</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/action3">Action 3</NavDropdown.Item>
+            <div  className="navbar-filter">
+            <NavDropdown title={"Filtrar juego"} id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/platforms">Por Plataforma</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/genres">Por Género</NavDropdown.Item>
+              
+              <NavDropdown.Item as={Link} to="/games">Todos los juegos</NavDropdown.Item>
             </NavDropdown>
+            </div>
           </Nav>
-          <Form className="d-flex">
+          <Form className="form-search" onSubmit={handleSearchSubmit}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="searchBar"
               aria-label="Search"
+              value={searchValue}
+              onChange={handleSearchChange}
             />
             <Button variant="outline-success">Search</Button>
           </Form>

@@ -66,7 +66,21 @@ body{
 .navbar{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: nowrap;
-  background-color: rgb(229, 247, 129);
+  background-color: rgb(121, 121, 121);
   color:black }
+
+  .navbar-links{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .navbar-filter{
+    margin: 20px;
+    gap: 10px;
+  }
+  #navbarScroll{
+    display: flex;
+    justify-content: space-between;
+  }
