@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png"
 import { useState } from 'react';
@@ -13,26 +13,33 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Menu from "../assets/images/burger-menu.png"
 import axios from 'axios';
 
+
 function MyNavbar() {
   const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([])
+
 
 
   const handleSearchChange = (event)=>{
+    //event.preventDefault()
     setSearchValue(event.target.value);
   }
   const handleSearchSubmit = (event) =>{
     event.preventDefault()
-    axios.get(`${import.meta.env.VITE_API_URL}/games$search=${searchValue}?key=${import.meta.env.VITE_API_KEY}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/games?key=${import.meta.env.VITE_API_KEY}&search=${searchValue}`)
     .then((response)=>{
-      setSearchValue(response.data.results)
-      console.log(response.data.results)
+      setSearchResults(response.data.results)
+      //console.log(response.data.results)
     })
     .catch((error)=>{
       console.log(error)
     })
   }
     
-    
+  const handleRemoveSearch =() =>{
+    setSearchResults([])
+  }    
+  
   
 
 
@@ -42,6 +49,7 @@ function MyNavbar() {
 
   return (
     
+    <div>
     <Navbar expand="lg" className="navbar" data-bs-theme="light">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
@@ -76,11 +84,29 @@ function MyNavbar() {
               value={searchValue}
               onChange={handleSearchChange}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" type="submit">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <Container>
+      {searchResults.length > 0 && (
+        <div className = "search-results">
+          <h2>Results</h2>
+          <ul>
+            {searchResults.map((game)=>(
+              <li key={game.id}>
+                <Link to={`/game/${game.id}`} onClick={handleRemoveSearch}>
+                  {game.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      )}
+    </Container>
+    </div>
   
    
     
