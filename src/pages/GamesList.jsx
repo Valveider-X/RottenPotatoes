@@ -5,6 +5,7 @@ import GameDetails from "./GameDetails";
 import { PacmanLoader } from "react-spinners";
 //bootstrap
 import Button from "react-bootstrap/Button";
+import CardForm from "../components/CardForm";
 
 function GamesList() {
   const [gamesList, setGamesList] = useState(null);
@@ -36,6 +37,7 @@ function GamesList() {
     <div>
       GamesList
       {gamesList.map((game, i) => {
+        const gameId=game.id
         return (
           <div key={i}>
             <Link to={"/game/" + game.id}>
@@ -49,6 +51,7 @@ function GamesList() {
                 <h4>{game.released}</h4>
                 <h4>{game.rating}</h4>
               </div>
+              <CardForm gameId={gameId}/>
             </Link>
           </div>
         );

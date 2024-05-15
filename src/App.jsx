@@ -18,6 +18,7 @@ import About from "./pages/About";
 //* Import Componentes
 import MyNavbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import EditReview from "./components/EditReview";
 
 
 
@@ -68,6 +69,7 @@ function App() {
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<About />} />
+        <Route path="/edit-review/:id" element={<EditReview/>}/>
       </Routes>
 
       <Footer />
