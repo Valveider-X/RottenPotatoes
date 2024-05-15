@@ -24,7 +24,7 @@ function MyNavbar() {
     //event.preventDefault()
     setSearchValue(event.target.value);
   }
-  const handleSearchSubmit = (event) =>{
+  const handleSearchSubmit= (event) =>{
     event.preventDefault()
     axios.get(`${import.meta.env.VITE_API_URL}/games?key=${import.meta.env.VITE_API_KEY}&search=${searchValue}`)
     .then((response)=>{
@@ -41,7 +41,6 @@ function MyNavbar() {
   }    
   
   
-
 
 
 
