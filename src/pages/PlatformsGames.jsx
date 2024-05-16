@@ -28,6 +28,7 @@ function PlatformsGames() {
   },[])
   if(platformsGames===null){
     return <PacmanLoader
+    class="pacman"
     color={"yellow"}
     size={50}
     />

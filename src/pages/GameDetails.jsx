@@ -5,11 +5,9 @@ import { PacmanLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import FormReview from "../components/FormReview";
-<<<<<<< HEAD
 import FormCompletion from "../components/FormCompletion";
 import EditReview from "../components/EditReview";
-=======
->>>>>>> e74302b8568e749eb1164725058a011ad9461fbd
+
 
 function GameDetails() {
   const params = useParams();
@@ -60,7 +58,7 @@ reviewId()
   };
 
   if (game === null) {
-    return <PacmanLoader color={"yellow"} size={50} />;
+    return <PacmanLoader class="pacman"color={"yellow"} size={50} />;
   }
   return (
     <div>
@@ -70,11 +68,11 @@ reviewId()
         <img
           src={game.background_image}
           style={{ height: "100px" }}
-          alt={"pito"}
+          alt={game.name}
         />
         <h3>{game.name}</h3>
         <hr />
-        <p>{game.description}</p>
+        <div dangerouslySetInnerHTML={{ __html: game.description}} />;
         <hr />
         <h4>{game.released}</h4>
         <h4>{game.rating}</h4>

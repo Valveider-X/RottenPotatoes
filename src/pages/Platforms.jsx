@@ -19,6 +19,7 @@ function Platforms() {
 
   if(platforms === null){
     return <PacmanLoader
+    class="pacman"
     color={"yellow"}
     size={50}
     />

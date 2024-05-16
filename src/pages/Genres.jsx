@@ -20,6 +20,7 @@ useEffect(()=>{
 
 if (genres === null){
   return <PacmanLoader
+  class="pacman"
   color={"yellow"}
   size={50}
   />

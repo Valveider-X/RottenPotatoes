@@ -24,6 +24,7 @@ function GenresGames() {
 
   if (genresGames === null) {
     return <PacmanLoader 
+    class="pacman"
     color={"yellow"} 
     size={50} 
     />;

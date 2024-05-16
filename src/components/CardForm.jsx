@@ -21,6 +21,7 @@ axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews`)
 },[])
 if (comment === null){
     return <PacmanLoader
+    class="pacman"
     color={"yellow"}
     size={50}
     />

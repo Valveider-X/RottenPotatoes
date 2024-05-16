@@ -30,7 +30,10 @@ function GamesList() {
   }, [currentPage]);
 
   if (gamesList === null) {
-    return <PacmanLoader color={"yellow"} size={50} />
+    return <PacmanLoader 
+    class="pacman"
+    color={"yellow"}
+     size={50} />
   }
 
   return (
