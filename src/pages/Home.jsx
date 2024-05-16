@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <div>Home
-    <h1>MOLTO PENE</h1>
+   <h1>MOLTO PENE</h1>
     
     <GamesList />
     </div>
