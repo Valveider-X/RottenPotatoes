@@ -83,7 +83,7 @@ function MyNavbar() {
               value={searchValue}
               onChange={handleSearchChange}
             />
-            <Button variant="outline-success" type="submit">Search</Button>
+            <Button variant="outline-success" type="submit" className="searchButton">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
