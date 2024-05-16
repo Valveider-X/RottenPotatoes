@@ -25,7 +25,7 @@ function FormCompletion() {
         `${import.meta.env.VITE_API_BACKEND}/completions`,
         newComment
       );
-      props
+      
   } catch (error) {
   }};
 
@@ -42,6 +42,7 @@ function FormCompletion() {
       {/*<label >Username</label> <br />
       <input type="text" id="username" name='username' /><br />*/}
       
+
       <label >Completion Time:</label><br />
       <input type="radio" id="<10" name="completionTime" value="<10" onChange={handleCompletion} />
       <label htmlFor="<10"> Menos de 10 horas</label><br></br>
@@ -53,7 +54,13 @@ function FormCompletion() {
       <label htmlFor=">50"> Mas de 50 horas</label><br></br>
       
       <button>aiuda</button>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </form>
     </div>
 
