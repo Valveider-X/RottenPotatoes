@@ -135,22 +135,22 @@ padding: 0 10px;}
     transform: scale(1.1);
   }
 }
-/*
-.card .bronze .rating {
+
+.card .bronze {
   background-color: #cd7f32; 
   text-decoration: underline #cd7f32;
   
 }
 
-.card .silver .rating {
+.card .silver {
   background-color: #c0c0c0; 
   text-decoration: underline #c0c0c0;
 }
 
-.card .gold .rating {
+.card .gold {
   background-color: #ffd700;
   text-decoration: underline #ffd700; 
-}*/
+}
 .card .game-date {
 display: none;
 }
@@ -176,6 +176,143 @@ display: none;
  
 
 }
+  
+.genres-card{
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  text-decoration: none;
+}
+.genres-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 100%);
+
+}
+
+.genres-card::before{
+
+  content: ''; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%;
+  width: 200%; 
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+  animation: pulseShine 2s infinite; 
+  opacity: 0; 
+  pointer-events: none; 
+  z-index: -1; 
+  transform: translate(-50%, -50%) scale(0);
+}
+.genres-card:hover::before{
+
+  opacity: 1; 
+  animation-name: pulseShine;
+
+}
+.genres-card img{
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  }
+
+  .genres-card h3{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 2.3em;
+    font-weight: bold;
+    font-family: "Arial Black", sans-serif;
+    color: inherit;
+    
+    
+    
+    }
+    
+    .platforms{
+      background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  text-decoration: none;
+
+    }
+
+  .platforms:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 100%);
+
+  }
+  .platforms::before{
+
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    width: 200%; 
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+    animation: pulseShine 2s infinite; 
+    opacity: 0; 
+    pointer-events: none; 
+    z-index: -1; 
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .platforms:hover::before{
+
+    opacity: 1; 
+    animation-name: pulseShine;
+
+  }
+  .platforms img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+  }
+  .platforms h3{
+
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 2.3em;
+    font-weight: bold;
+    font-family: "Arial Black", sans-serif;
+    color: inherit;
+  }
+
+
+
+
+
 .botoncito{
   margin-bottom: 50px
 }
@@ -207,7 +344,7 @@ display: none;
   text-align: center;
   position: fixed;
   top: 0;
-  max-height: 15%;
+  max-height: 200px;
   width: 100%;
   z-index: 1000;
   display: flex;
@@ -303,7 +440,50 @@ display: none;
   }
 
 
-  @media only screen and (max-width: 768px) {
+  /* pantalla desktop*/
+  /* @media only screen and (min-width: 1200px) {
+    .container {
+      padding: 0 40px;
+    }
+  
+    .card {
+      width: calc(33.33% - 40px);
+    }
+  
+    .navbar {
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 40px;
+    }
+  
+    .navbar-brand {
+      margin-right: 20px;
+    }
+  
+    .navbar-links {
+      flex-grow: 1;
+      justify-content: flex-start;
+      margin-top: 0;
+    }
+  
+    .form-search {
+      margin-left: auto;
+      width: 50%;
+    }
+  
+    .searchBar {
+      flex-grow: 2;
+      margin-right: 10px;
+    }
+  
+    .searchButton {
+      width: auto;
+      padding: 8px 16px;
+    }
+  }/*
+
+  /* pantalla laptop 1025-maximo 1366px*/
+  @media only screen and (width < 1366px) {
     .logo{
       margin-left: -50%;
       
@@ -319,34 +499,26 @@ display: none;
     .navbar {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       padding-bottom: 10px;
     }
     .navbar-brand {
       margin-bottom: 10px;
     }
     .navbar-links {
+     
+      margin-top: 10px;
       font-size: 0.8em;
       line-height: 60%;
-      justify-content: flex-start;
       display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      width: 100%;
-      margin-top: -25%;
-      margin-left: 10%;
+      justify-content: flex-start;
+      flex-direction: column;
+      min-width: 350px
       
     }
 
-    .nav-link{
-     
-      
     
-    }
     .form-search {
-      width: 100%;
-      margin-top: -80px;
       display: flex;
       justify-content: center;
       width: 70%;
@@ -355,7 +527,6 @@ display: none;
     }
     .searchBar {
       flex-grow: 2;
-      margin-left: -60%;
     }
     .searchButton{
       width: 55px;
@@ -366,40 +537,85 @@ display: none;
     }
   
   }
-  
-  @media only screen and (min-width: 1200px) {
-    .container{
-      padding: 0 40px;
+  /* pantalla tablet */
+  @media only screen and (width < 1024px) {
+    .logo{
+      margin-left: -50%;
+      
+    }
+    .container {
+      padding: 0 20px;
     }
     
     .card {
-      width: calc(33.33% - 40px);
+      width: 100%;
+      margin: 10px 0;
     }
     .navbar {
+      display: flex;
       flex-direction: row;
-      align-items: center;
-      padding: 10px 40px;
+      align-items: flex-start;
+      padding-bottom: 10px;
     }
     .navbar-brand {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .navbar-links {
+      font-size: 0.8em;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      flex-wrap: nowrap;
+   
+      
+    }
+
+    .form-search {
+      display: flex;
       justify-content: center;
-      flex-grow: 1;
-      margin-top: 0;
+    
 
     }
-    
-    .form-search {
-      
-      margin-left: auto;
-      
-    }
     .searchBar {
-     margin-right: 5px;
+      flex-grow: 2;
     }
     .searchButton{
+      width: 55px;
       margin-top: 0;
+      display: flex;
+      justify-content: center;
+
     }
+  
   }
- 
+
+/* telf iphone etc de 320a 600*/
+  @media only screen and (width < 600px) {
+    .navbar {
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 10px;
+    
+    }
+    .navbar-brand {
+      margin-bottom: 10px;
+    }
+    .navbar-links {
+      font-size: 0.8em;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column !important;
+      min-width: 30%
+
+
+    }
+    .form-search {
+      flex-direction: column;
+    }
+    .form-search button {
+      width: 100%;
+    }
+  
+  }
+  
+  
