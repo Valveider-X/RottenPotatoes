@@ -17,6 +17,10 @@ function FormCompletion() {
 
     
     <form onSubmit={handleSubmit}>
+
+      <label >Username</label> <br />
+      <input type="text" id="username" name='username' /><br />
+      
       <label >Completion Time:</label><br />
       <input type="radio" id="<10" name="completionTime" value="<10" />
       <label htmlFor="<10"> Menos de 10 horas</label><br></br>
