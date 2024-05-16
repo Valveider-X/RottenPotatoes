@@ -1,10 +1,11 @@
 import React from 'react'
+import ErrorImg from "../assets/images/error.jpg"
 
 function Error() {
   return (
     <div>
 
-      <h1>Aiuda</h1>
+      <img className="error404" src={ErrorImg}></img>
     </div>
   )
 }

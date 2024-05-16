@@ -11,8 +11,16 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
   
+}
+  .error404{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    max-height: 500px;
+  }
 
 h1, h2, h3 {
   color: #fff;
@@ -26,11 +34,16 @@ padding: 0 10px;}
 .futer{
   background-color: #333;
   color: #fff;
-  text-align: center;
   padding: 10px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.futer a{
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .card {
   background-color: #333;
