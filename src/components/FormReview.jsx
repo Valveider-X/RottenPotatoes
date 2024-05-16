@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import EditReview from "./EditReview";
 
 function FormReview(props) {
   const params = useParams();
@@ -51,11 +52,13 @@ function FormReview(props) {
       <h2>Review</h2>
       <form onSubmit={handleSubmit}>
         <div>
+          <label value={params.id}></label>
           <label>Name:</label>
           <input
             type="text"
             name="name"
             value={nameValue}
+            
             onChange={handleNameChange}
           />
         </div>
@@ -73,21 +76,21 @@ function FormReview(props) {
         <div className="card-form">
           <label>Potatoes Rating:</label>
           <br />
-          <input type="radio" name="1" onChange={handleTopping}></input>
+          <input type="radio" name="1" value={1} onChange={handleTopping}></input>
           <label htmlFor="1">1</label>
           <br />
 
-          <input type="radio" name="1" onChange={handleTopping}></input>
-          <label htmlFor="1">2</label>
+          <input type="radio" name="1" value={2} onChange={handleTopping}></input>
+          <label htmlFor="2">2</label>
           <br />
-          <input type="radio" name="1" onChange={handleTopping}></input>
-          <label htmlFor="1">3</label>
+          <input type="radio" name="1" value={3} onChange={handleTopping}></input>
+          <label htmlFor="3">3</label>
           <br />
-          <input type="radio" name="1" onChange={handleTopping}></input>
-          <label htmlFor="1">4</label>
+          <input type="radio" name="1" value={4} onChange={handleTopping}></input>
+          <label htmlFor="4">4</label>
           <br />
-          <input type="radio" name="1" onChange={handleTopping}></input>
-          <label htmlFor="1">5</label>
+          <input type="radio" name="1" value={5} onChange={handleTopping}></input>
+          <label htmlFor="5">5</label>
         </div>
 
         <button className="botoncito">Are you sure?</button>

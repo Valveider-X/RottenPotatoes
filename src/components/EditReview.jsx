@@ -8,16 +8,18 @@ import axios from 'axios';
 function EditReview() {
   const params = useParams();
   const navigate = useNavigate()
-  const commentId = useParams()
-  
-  const [nameValue, setNameValue] = useState("");
-  const [commentValue, setCommentValue] = useState("");
-  const [topping, setTopping] = useState("");
  
+  
+  const [dataValue, setDataValue] = useState("");
+  const [commentValue, setCommentValue] = useState("");
+  const [nameValue, setNameValue] = useState("");
+  const [toppingValue, setToppingValue] = useState("");
+
 
 
 useEffect (()=>{
   getData()
+  
 },[])
 
 
@@ -25,11 +27,8 @@ const getData= async()=>{
 
   try {
     const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews?gameId=${params.id}`)
-    console.log(response);
-    setNameValue(response.data.name)
-    setCommentValue(response.data.comment)
-    setTopping(response.data.ratings)
-    commentId(response.data.id)
+    console.log(response.data);
+    setDataValue(response.data)
   } catch (error) {
     console.log(error);
     
@@ -37,27 +36,26 @@ const getData= async()=>{
 
 
 }
- 
-
   const handleSubmitEdit = async (e) => {
     e.preventDefault();
     console.log("entregando");
     //navigate(`/game/${params.id}`)
 
     const updatedComment = {
+      
       id: params.id,
       name: nameValue,
       comment: commentValue,
-      ratings: topping,
+      ratings: toppingValue,
     };
     try {
-      await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
+      await axios.patch(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
       console.log("tarea editada");
       
 
      
       
-      //navigate("/")//temporalmente enviarlo a details
+      navigate(-1)//temporalmente enviarlo a details
       //props.getReviews();
     } catch (error) {
       //console.log(error);
@@ -70,24 +68,12 @@ const getData= async()=>{
     console.log("entregando");
     //navigate(`/game/${params.id}`)
 
-    const updatedComment = {
-      id: params.id,
-      name: nameValue,
-      comment: commentValue,
-      ratings: topping,
-    };
+   
     try {
-      await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
-      console.log("tarea editada");
+      await axios.delete(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`);
+      console.log("tarea eliminada");
       
-
-      setNameValue(response.data.name)
-      setCommentValue(response.data.comment)
-      setTopping(response.data.ratings)
-      commentId(response.data.id)
-
-      
-      //navigate("/")//temporalmente enviarlo a details
+      navigate(-1)//temporalmente enviarlo a details
       //props.getReviews();
     } catch (error) {
       //console.log(error);
@@ -104,7 +90,7 @@ const getData= async()=>{
           <input 
             type="text"
             name="name"
-            value={nameValue}
+            value={dataValue.name}
             onChange={(e)=>setNameValue(e.target.value)}
           />
         </div>
@@ -114,7 +100,7 @@ const getData= async()=>{
           <textarea
             type="text"
             name="comments"
-            value={commentValue}
+            value={dataValue.comment}
             onChange={(e)=>setCommentValue(e.target.value)}
           />
         </div>
@@ -122,27 +108,27 @@ const getData= async()=>{
         <div>
           <label>Potatoes Rating:</label>
           <br />
-          <input type="radio" name="1" onChange={(e)=>setTopping(e.target.value)}></input>
+          <input type="radio" name="rating" value={1} onChange={(e)=>setToppingValue(e.target.value)}></input>
           <label htmlFor="1">1</label>
           <br />
 
-          <input type="radio" name="1" onChange={(e)=>setTopping(e.target.value)}></input>
-          <label htmlFor="1">2</label>
+          <input type="radio" name="rating" value={2} onChange={(e)=>setToppingValue(e.target.value)}></input>
+          <label htmlFor="2">2</label>
           <br />
-          <input type="radio" name="1" onChange={(e)=>setTopping(e.target.value)}></input>
-          <label htmlFor="1">3</label>
+          <input type="radio" name="rating" value={3} onChange={(e)=>setToppingValue(e.target.value)}></input>
+          <label htmlFor="3">3</label>
           <br />
-          <input type="radio" name="1" onChange={(e)=>setTopping(e.target.value)}></input>
-          <label htmlFor="1">4</label>
+          <input type="radio" name="rating" value={4} onChange={(e)=>setToppingValue(e.target.value)}></input>
+          <label htmlFor="4">4</label>
           <br />
-          <input type="radio" name="1" onChange={(e)=>setTopping(e.target.value)}></input>
-          <label htmlFor="1">5</label>
+          <input type="radio" name="rating" value={5} onChange={(e)=>setToppingValue(e.target.value)}></input>
+          <label htmlFor="5">5</label>
           <br />
         </div>
 
         <button type="submit">Are you sure?</button>
-        <button onClick ={deleteForm}type="submit">Delete</button>
       </form>
+        <button onClick ={deleteForm}>Delete</button>
     </div>
   );
 
