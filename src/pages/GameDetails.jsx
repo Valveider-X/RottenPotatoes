@@ -95,7 +95,7 @@ reviewId()
             <p><b>Rating Potatoes:</b></p>
           <p>{eachReview.ratings}</p>
 
-          <Link to={`/edit-review/${params.id}/`}>
+          <Link to={`/edit-review/${eachReview.id}`}>
           <button>Edit Comment</button>
           </Link>
            {/*  <Link to={`/game/${params.id}`}>
