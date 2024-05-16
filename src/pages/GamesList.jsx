@@ -26,6 +26,7 @@ function GamesList() {
       })
       .catch((error) => {
         console.log(error);
+        Navigate("/error")
       });
   }, [currentPage]);
 

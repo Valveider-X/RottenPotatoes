@@ -8,7 +8,7 @@ function About() {
   return (
     <div className='team-members'>
 
-    <h1>🍆TEAM MEMBERS🍆: </h1>
+    <h1>🍆TEAM MEMBERS🍆 </h1>
 
     <div className='member'>
     <img className="img-about" src={Xavi} alt="Xavi"/>

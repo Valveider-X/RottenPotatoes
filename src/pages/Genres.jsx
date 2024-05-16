@@ -15,6 +15,7 @@ useEffect(()=>{
   })
   .catch((error)=>{
     console.log(error)
+    Navigate("/error")
   })
 },[])
 

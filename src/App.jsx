@@ -23,6 +23,7 @@ import EditReview from "./components/EditReview";
 
 
 import "./App.css";
+import ReviewList from "./components/ReviewList";
 
 
 
@@ -65,6 +66,7 @@ function App() {
         <Route path="/games" element={<GamesList />} />
         <Route path="/game/:id" element={<GameDetails />} />
         <Route path="/game-reviews/:id" element={<GameReviews />} />
+        <Route path="/game-reviews/" element={<GameReviews />} />
         <Route path="/game-completion/:id" element={<GameCompletion />} />
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />

@@ -12,6 +12,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Menu from "../assets/images/burger-menu.png"
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 
 function MyNavbar() {
@@ -37,7 +38,7 @@ function MyNavbar() {
   }
     
   const handleRemoveSearch =() =>{
-    setSearchResults([])
+    Navigate(0)
   }    
   
   

@@ -23,6 +23,7 @@ function GenresGames() {
       })
       .catch((error) => {
         console.log(error);
+        Navigate("/error")
       });
   }, []);
 

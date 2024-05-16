@@ -14,6 +14,7 @@ function Platforms() {
     })
     .catch((error)=>{
       console.log(error)
+      Navigate("/error")
     })
   },[])
 
