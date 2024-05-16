@@ -37,17 +37,7 @@ const getData= async()=>{
 
 
 }
-  /*const handleNameChange = (e) => {
-    // console.log("escribiendo", e.target.value);
-    setNameValue(e.target.value.toUpperCase());
-  };
-  const handleCommentChange = (e) => {
-    setCommentValue(e.target.value.toUpperCase());
-  };
-  const handleTopping = (e) => {
-    // console.log("point");
-    setTopping(e.target.value);
-  };*/
+ 
 
   const handleSubmitEdit = async (e) => {
     e.preventDefault();
@@ -63,6 +53,10 @@ const getData= async()=>{
     try {
       await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
       console.log("tarea editada");
+      
+
+     
+      
       //navigate("/")//temporalmente enviarlo a details
       //props.getReviews();
     } catch (error) {
@@ -71,14 +65,34 @@ const getData= async()=>{
     //console.log(newComment);
   };
 
-  const deleteForm = () =>{
-    axios.delete(`${import.meta.env.VITE_API_BACKEND}/reviews?id=${commentId}`)
-    .then(()=>{
+  const deleteForm =async (e) =>{
+    e.preventDefault();
+    console.log("entregando");
+    //navigate(`/game/${params.id}`)
 
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
+    const updatedComment = {
+      id: params.id,
+      name: nameValue,
+      comment: commentValue,
+      ratings: topping,
+    };
+    try {
+      await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
+      console.log("tarea editada");
+      
+
+      setNameValue(response.data.name)
+      setCommentValue(response.data.comment)
+      setTopping(response.data.ratings)
+      commentId(response.data.id)
+
+      
+      //navigate("/")//temporalmente enviarlo a details
+      //props.getReviews();
+    } catch (error) {
+      //console.log(error);
+    }
+    //console.log(newComment);
   }
   return (
     <div>
@@ -87,7 +101,7 @@ const getData= async()=>{
       <form onSubmit={handleSubmitEdit}>
         <div>
           <label>Name:</label>
-          <input
+          <input 
             type="text"
             name="name"
             value={nameValue}
@@ -127,6 +141,7 @@ const getData= async()=>{
         </div>
 
         <button type="submit">Are you sure?</button>
+        <button onClick ={deleteForm}type="submit">Delete</button>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import FormReview from "../components/FormReview";
 import FormCompletion from "../components/FormCompletion";
+import EditReview from "../components/EditReview";
 
 function GameDetails() {
   const params = useParams();
@@ -22,8 +23,11 @@ function GameDetails() {
 
   }, [params.id]);
 
+  const reviewId=()=>{
 
-
+    console.log(reviews); 
+  }
+reviewId()
   const getReviews = () => {
     axios
       .get(`${import.meta.env.VITE_API_BACKEND}/reviews?gameId=${params.id}`)
@@ -93,9 +97,9 @@ function GameDetails() {
           <Link to={`/edit-review/${eachReview.id}/`}>
           <button>Edit Comment</button>
           </Link>
-            <Link to={`/game/${params.id}`}>
+           {/*  <Link to={`/game/${params.id}`}>
               <button onClick={()=> handleDelete(eachReview.id)}>Delete</button>
-            </Link>
+            </Link>*/}
              </div>
         )
 
@@ -103,6 +107,7 @@ function GameDetails() {
 
 
       <CardForm />
+      
       <FormReview getReviews={getReviews}/>
       <FormCompletion />
     </div>
