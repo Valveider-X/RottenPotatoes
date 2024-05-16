@@ -61,7 +61,7 @@ const getData= async()=>{
       ratings: topping,
     };
     try {
-      await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews?id=${params.id}/${commentId}`, updatedComment);
+      await axios.put(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
       console.log("tarea editada");
       //navigate("/")//temporalmente enviarlo a details
       //props.getReviews();

@@ -5,6 +5,7 @@ import { PacmanLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import FormReview from "../components/FormReview";
+import FormCompletion from "../components/FormCompletion";
 
 function GameDetails() {
   const params = useParams();
@@ -89,7 +90,7 @@ function GameDetails() {
             <p><b>Rating Potatoes:</b></p>
           <p>{eachReview.ratings}</p>
 
-          <Link to={`/edit-review/${params.id}/`}>
+          <Link to={`/edit-review/${eachReview.id}/`}>
           <button>Edit Comment</button>
           </Link>
             <Link to={`/game/${params.id}`}>
@@ -103,7 +104,7 @@ function GameDetails() {
 
       <CardForm />
       <FormReview getReviews={getReviews}/>
-
+      <FormCompletion />
     </div>
   );
 }
