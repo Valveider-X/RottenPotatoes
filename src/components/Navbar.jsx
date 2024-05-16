@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
-import Logo from "../assets/images/logo.png"
+import Logo from "../assets/images/patata.png"
 import { useState } from 'react';
 //navbar bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -52,7 +52,13 @@ function MyNavbar() {
     <Navbar className="navbar" data-bs-theme="light">
 
         <Navbar.Brand as={Link} to="/">
+        <div class="logo-container">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
           <img className="logo"src={Logo} alt="Logo" />
+        </div>
         </Navbar.Brand>
           <Nav
             className="navbar-links"

@@ -6,6 +6,54 @@ body{
   background-color: #222;
   color: #fff;
 }
+.logo-container{
+  position: relative;
+            width: 200px;
+            height: 200px;
+}
+.square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 40%;
+  border: 2px solid;
+  animation: rotate 5s linear infinite;
+}
+
+.square:nth-child(1) {
+  animation-duration: 5s;
+  color: red
+}
+
+.square:nth-child(2) {
+  animation-duration: 3s;
+  color: yellow
+}
+
+.square:nth-child(3) {
+  animation-duration: 2s;
+  color: green
+}
+.square:nth-child(4) {
+  animation-duration: 4s;
+  color: blue
+}
+.logo {
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 100px; 
+}
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
 .pacman{
   position: absolute;
   top: 50%;
@@ -30,6 +78,20 @@ h1, h2, h3 {
   margin: 0 auto;
 padding: 0 10px;}
 
+.server-img{
+  height: 30px;
+  width: 30px;
+  
+}
+.git-img{
+  
+  width: 30px;
+
+  
+}
+.clown{
+  width: 30px;
+}
 
 .futer{
   background-color: #333;
@@ -363,7 +425,7 @@ display: none;
   text-align: center;
   position: fixed;
   top: 0;
-  max-height: 200px;
+  max-height: 120px;
   width: 100%;
   z-index: 1000;
   display: flex;
