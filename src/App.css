@@ -12,6 +12,8 @@ body{
             height: 200px;
 }
 .square {
+  margin-left: 100px;
+  margin-top: 50px;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,6 +42,7 @@ body{
   color: blue
 }
 .logo {
+  margin-top: 50px;
   position: absolute;
   top: 20%;
   left: 70%;
@@ -54,7 +57,98 @@ body{
       transform: rotate(360deg);
   }
 }
+
+.team-members{
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.member{
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+
+
+}
+.img-about{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+}
+
+.member h3 {
+  margin-top: 20px;
+  margin-left: 10px;
+  font-size: 2.3em;
+  font-weight: bold;
+  font-family: "Arial Black", sans-serif;
+  color: inherit;
+}
+
+.member p {
+  margin-top: 2px;
+  font-size: 1em;
+  font-weight: bold;
+  color:#fff;
+  
+}
+/* About */
+/*
+
+
+
+
+
+  
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 100%);
+}
+.card::before {
+  content: ''; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%;
+  width: 200%; 
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+  animation: pulseShine 2s infinite; 
+  opacity: 0; 
+  pointer-events: none; 
+  z-index: -1; 
+  transform: translate(-50%, -50%) scale(0);
+
+}
+
+.card:hover::before {
+  opacity: 1; 
+  animation-name: pulseShine;
+}
+
+
+
+ 
+}
+
+
+*/
 .pacman{
+  margin-top: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,6 +162,15 @@ body{
     transform: translate(-50%, -50%);
     border-radius: 15px;
     max-height: 500px;
+  }
+  .notfound{
+    
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    max-height: 400px;
   }
 
 h1, h2, h3 {
@@ -123,6 +226,7 @@ padding: 0 10px;}
   position: relative;
   overflow: hidden;
   justify-content: center;
+  margin-top: 60px;
 }
 .card:hover {
   transform: translateY(-5px);
@@ -565,9 +669,32 @@ display: none;
 
   /* pantalla laptop 1025-maximo 1366px*/
   @media only screen and (width < 1366px) {
+    
+    .logo-container{
+      position: relative;
+      width: 200px;
+      height: 200px;
+      top: -50px;
+    }
+    .square {
+      margin-left: 100px;
+      margin-top: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 40%;
+      border: 2px solid;
+      animation: rotate 5s linear infinite;
+    }
+    
     .logo{
-      margin-left: -50%;
-      
+      margin-top: 50px;
+      position: absolute;
+      top: 20%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      width: 100px; 
     }
     .container {
       padding: 0 20px;
@@ -621,9 +748,15 @@ display: none;
   /* pantalla tablet */
   @media only screen and (width < 1024px) {
     .logo{
-      margin-left: -50%;
+      margin-top: 50px;
+      position: absolute;
+      top: 20%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      width: 100px; 
       
     }
+    
     .container {
       padding: 0 20px;
     }
@@ -658,9 +791,11 @@ display: none;
 
     }
     .searchBar {
-      flex-grow: 2;
+      
+      width: 200px;
     }
     .searchButton{
+      margin-right: 50px;
       width: 55px;
       margin-top: 0;
       display: flex;
