@@ -49,17 +49,15 @@ function MyNavbar() {
   return (
     
     <div>
-    <Navbar expand="lg" className="navbar" data-bs-theme="light">
-      <Container fluid>
+    <Navbar className="navbar" data-bs-theme="light">
+
         <Navbar.Brand as={Link} to="/">
           <img className="logo"src={Logo} alt="Logo" />
         </Navbar.Brand>
-        <Navbar.Collapse id="navbarScroll">
-
           <Nav
             className="navbar-links"
             style={{ maxHeight: '100px' }}
-            navbarScroll>
+            >
               {/*<NavDropdown.Divider />*/}
             <Nav.Link as={Link} to="/game-reviews">Reseñas</Nav.Link>
             <Nav.Link as={Link} to="/game-completion">Completion</Nav.Link>
@@ -84,8 +82,7 @@ function MyNavbar() {
             />
             <Button variant="outline-success" type="submit" className="searchButton">Search</Button>
           </Form>
-        </Navbar.Collapse>
-      </Container>
+
     </Navbar>
     <Container>
       {searchResults.length > 0 && (

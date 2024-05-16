@@ -39,11 +39,11 @@ function GamesList() {
         const gameId=game.id
         let ratingColorClass = ""
         if(game.rating >=0 && game.rating <=2){
-          ratingColorClass = "bronze"
+          ratingColorClass = "rating bronze"
         }else if (game.rating > 2 && game.rating <= 4){
-          ratingColorClass = "silver"
+          ratingColorClass = "rating silver"
         }else if (game.rating > 4 && game.rating <= 5){
-          ratingColorClass = "gold"
+          ratingColorClass = "rating gold"
         }
         return (
           <div key={i}>
@@ -57,7 +57,7 @@ function GamesList() {
                 />
                 <h3>{game.name}</h3>
                 {/*<h4>{game.released}</h4>*/}
-                <p className="rating">{game.rating}</p>
+                <p className={ratingColorClass}>{game.rating}</p>
               </div>
               <CardForm gameId={gameId}/>
             </Link>
