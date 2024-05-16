@@ -25,9 +25,12 @@ function FormCompletion() {
         `${import.meta.env.VITE_API_BACKEND}/completions`,
         newComment
       );
- 
+      props
   } catch (error) {
   }};
+
+ 
+
 
   return (
 

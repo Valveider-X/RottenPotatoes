@@ -19,16 +19,29 @@ function EditReview() {
 
 useEffect (()=>{
   getData()
+  setData()
   
 },[])
 
+const setData = async()=>{
+  try {
+  const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews?gameId=${params.id}`)
+  setNameValue(response.data.name)
+  setCommentValue(response.data.comment)
+console.log(response.data);
+
+} catch(error){
+  console.log(error);
+}}
 
 const getData= async()=>{
 
   try {
-    const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews?gameId=${params.id}`)
+    const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`)
     console.log(response.data);
     setDataValue(response.data)
+
+    
   } catch (error) {
     console.log(error);
     
