@@ -34,22 +34,30 @@ function GamesList() {
   }
 
   return (
-    <div>
-      GamesList
+    <div className="custom-container">
       {gamesList.map((game, i) => {
         const gameId=game.id
+        let ratingColorClass = ""
+        if(game.rating >=0 && game.rating <=2){
+          ratingColorClass = "bronze"
+        }else if (game.rating > 2 && game.rating <= 4){
+          ratingColorClass = "silver"
+        }else if (game.rating > 4 && game.rating <= 5){
+          ratingColorClass = "gold"
+        }
         return (
           <div key={i}>
-            <Link to={"/game/" + game.id}>
+            <Link to={"/game/" + game.id}
+            className="card">
               <div className="game-card">
                 <img
                   src={game.background_image}
-                  style={{ height: "100px" }}
+  
                   alt={"gameName" + game.name}
                 />
                 <h3>{game.name}</h3>
-                <h4>{game.released}</h4>
-                <h4>{game.rating}</h4>
+                {/*<h4>{game.released}</h4>*/}
+                <p className="rating">{game.rating}</p>
               </div>
               <CardForm gameId={gameId}/>
             </Link>

@@ -8,19 +8,18 @@ import FormReview from "../components/FormReview";
 
 function GameDetails() {
   const params = useParams();
-  const commentId = useParams()
+  const navigate = useNavigate()
   console.log(params);
   const [game, setGame] = useState(null);
   const [reviews, setReviews] = useState([]);
-  const navigate=useNavigate()
 
   useEffect(() => {
     getData();
 
     getReviews();
 
-    getBackendId()
-  }, []);
+
+  }, [params.id]);
 
 
 
@@ -33,16 +32,6 @@ function GameDetails() {
       .catch((error) => {});
   };
 
-  const getBackendId = () => {
-    axios
-      .get(`${import.meta.env.VITE_API_BACKEND}/reviews`)
-      
-      .then((response) => {
-        console.log(response)
-        commentId(response.data.id)
-      })
-      .catch((error) => {});
-  };
 
   const getData = () => {
     axios
@@ -55,7 +44,7 @@ function GameDetails() {
       .then((response) => {
         console.log(response);
         setGame(response.data);
-        console.log(response.data);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -65,7 +54,6 @@ function GameDetails() {
   if (game === null) {
     return <PacmanLoader color={"yellow"} size={50} />;
   }
-console.log(commentId)
   return (
     <div>
       <p>GameDetails</p>
@@ -105,7 +93,7 @@ console.log(commentId)
           <button>Edit Comment</button>
           </Link>
             <Link to={`/game/${params.id}`}>
-              <button>Delete</button>
+              <button onClick={()=> handleDelete(eachReview.id)}>Delete</button>
             </Link>
              </div>
         )

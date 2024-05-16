@@ -72,7 +72,7 @@ const getData= async()=>{
   };
 
   const deleteForm = () =>{
-    axios.delete(`${import.meta.env.VITE_API_BACKEND}/reviews?id=${params.id}`)
+    axios.delete(`${import.meta.env.VITE_API_BACKEND}/reviews?id=${commentId}`)
     .then(()=>{
 
     })
@@ -126,7 +126,7 @@ const getData= async()=>{
           <br />
         </div>
 
-        <button>Are you sure?</button>
+        <button type="submit">Are you sure?</button>
       </form>
     </div>
   );
