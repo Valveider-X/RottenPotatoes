@@ -109,7 +109,6 @@ padding: 0 10px;}
   width: 50px;
   height: 50px;
   line-height: 50px;
-  
   color:#333;
   text-align: center;
   text-decoration: none;
@@ -196,9 +195,13 @@ display: none;
   padding:10px 20px;
   text-align: center;
   position: fixed;
+  top: 0;
   max-height: 15%;
   width: 100%;
-  z-index: 1000; }
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
   .navbar-brand img {
     height: 50px;
@@ -206,6 +209,10 @@ display: none;
 
   .navbar-toggler {
     color: #fff;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
   }
   .navbar-filter .dropdown-menu {
     background-color: #444; 
@@ -295,8 +302,31 @@ display: none;
     }
     
     .card {
-      width: calc(50% - 20px);
+      width: 100%;
+      margin: 10px 0;
     }
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+    .navbar-brand {
+      margin-bottom: 10px;
+    }
+    .navbar-links {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .form-search {
+      width: 100%;
+      justify-content: space-between;
+      margin-left: 0;
+    }
+    searchBar {
+      flex-grow: 1;
+    }
+  
   }
   
   @media only screen and (min-width: 1200px) {
