@@ -70,7 +70,7 @@ function FormReview(props) {
           />
         </div>
 
-        <div>
+        <div className="card-form">
           <label>Potatoes Rating:</label>
           <br />
           <input type="radio" name="1" onChange={handleTopping}></input>
@@ -88,10 +88,9 @@ function FormReview(props) {
           <br />
           <input type="radio" name="1" onChange={handleTopping}></input>
           <label htmlFor="1">5</label>
-          <br />
         </div>
 
-        <button>Are you sure?</button>
+        <button className="botoncito">Are you sure?</button>
       </form>
     </div>
   );

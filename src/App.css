@@ -167,7 +167,18 @@ display: none;
   align-items: center;
   
 }
+.card-form{
+  top: 0;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
 
+ 
+
+}
+.botoncito{
+  margin-bottom: 50px
+}
 .pagination {
   display: flex;
   justify-content: center;
@@ -207,13 +218,7 @@ display: none;
     height: 50px;
   }
 
-  .navbar-toggler {
-    color: #fff;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-  }
+
   .navbar-filter .dropdown-menu {
     background-color: #444; 
   }
@@ -228,7 +233,9 @@ display: none;
   
   .navbar-links {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    flex-grow: 1;
   }
 
   .navbar-links a{
@@ -297,6 +304,10 @@ display: none;
 
 
   @media only screen and (max-width: 768px) {
+    .logo{
+      margin-left: -50%;
+      
+    }
     .container {
       padding: 0 20px;
     }
@@ -306,25 +317,52 @@ display: none;
       margin: 10px 0;
     }
     .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 10px;
     }
     .navbar-brand {
       margin-bottom: 10px;
     }
     .navbar-links {
-      flex-direction: column;
-      align-items: flex-start;
+      font-size: 0.8em;
+      line-height: 60%;
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
       width: 100%;
+      margin-top: -25%;
+      margin-left: 10%;
+      
+    }
+
+    .nav-link{
+     
+      
+    
     }
     .form-search {
       width: 100%;
-      justify-content: space-between;
-      margin-left: 0;
+      margin-top: -80px;
+      display: flex;
+      justify-content: center;
+      width: 70%;
+    
+
     }
-    searchBar {
-      flex-grow: 1;
+    .searchBar {
+      flex-grow: 2;
+      margin-left: -60%;
+    }
+    .searchButton{
+      width: 55px;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+
     }
   
   }
@@ -336,6 +374,32 @@ display: none;
     
     .card {
       width: calc(33.33% - 40px);
+    }
+    .navbar {
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 40px;
+    }
+    .navbar-brand {
+      margin-bottom: 20px;
+    }
+    .navbar-links {
+      justify-content: center;
+      flex-grow: 1;
+      margin-top: 0;
+
+    }
+    
+    .form-search {
+      
+      margin-left: auto;
+      
+    }
+    .searchBar {
+     margin-right: 5px;
+    }
+    .searchButton{
+      margin-top: 0;
     }
   }
  
