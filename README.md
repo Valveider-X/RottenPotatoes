@@ -1,8 +1,8 @@
 NOTE: to copy this readme structure simply click on `Raw` on the top right of this gist. There you have the content in the basic [Markdown syntax](https://www.markdownguide.org/basic-syntax/) used in readme files. Then paste it on a README.md file in your repository and fill the information. Always do this directly from VS code, not from github. DON'T ADD THIS NOTE TO YOUR README.
 
-# NAME OF YOUR PROYECT
+# Rotten Potatoes
 
-## [Visita buestra pagina!](https://rotten-potatoes-app.netlify.app/)
+## [Visita nuestra pagina!](https://rotten-potatoes-app.netlify.app/)
 
 ![Game Logo](https://ibb.co/QkCv7Lb)
 
