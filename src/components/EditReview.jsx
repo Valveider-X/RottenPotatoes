@@ -28,22 +28,22 @@ const setData = async()=>{
   const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews?gameId=${params.id}`)
   setNameValue(response.data.name)
   setCommentValue(response.data.comment)
-console.log(response.data);
+
 
 } catch(error){
-  console.log(error);
+  navigate("/error")
 }}
 
 const getData= async()=>{
 
   try {
     const response=await axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`)
-    console.log(response.data);
+   
     setDataValue(response.data)
 
     
   } catch (error) {
-    console.log(error);
+    navigate("/error")
     
   }
 
@@ -51,8 +51,7 @@ const getData= async()=>{
 }
   const handleSubmitEdit = async (e) => {
     e.preventDefault();
-    console.log("entregando");
-    //navigate(`/game/${params.id}`)
+    
 
     const updatedComment = {
       
@@ -63,7 +62,7 @@ const getData= async()=>{
     };
     try {
       await axios.patch(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`, updatedComment);
-      console.log("tarea editada");
+     
       
 
      
@@ -71,27 +70,29 @@ const getData= async()=>{
       navigate(-1)//temporalmente enviarlo a details
       //props.getReviews();
     } catch (error) {
-      //console.log(error);
+      navigate("/error")
+      
     }
-    //console.log(newComment);
+    
   };
 
   const deleteForm =async (e) =>{
     e.preventDefault();
-    console.log("entregando");
-    //navigate(`/game/${params.id}`)
+    
+    
 
    
     try {
       await axios.delete(`${import.meta.env.VITE_API_BACKEND}/reviews/${params.id}`);
-      console.log("tarea eliminada");
+      
       
       navigate(-1)//temporalmente enviarlo a details
       //props.getReviews();
     } catch (error) {
-      //console.log(error);
+      navigate("/error")
+      
     }
-    //console.log(newComment);
+    
   }
   return (
     <div>
@@ -139,9 +140,9 @@ const getData= async()=>{
           <br />
         </div>
 
-        <button type="submit">Are you sure?</button>
+        <button className="botoncito" type="submit">Are you sure?</button>
       </form>
-        <button onClick ={deleteForm}>Delete</button>
+        <button className="botoncito" onClick ={deleteForm}>Delete</button>
     </div>
   );
 

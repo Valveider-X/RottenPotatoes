@@ -8,13 +8,13 @@ function FormCompletion() {
   const navigate = useNavigate();
   
   const handleCompletion = (e) => {
-    // console.log("point");
+   
     setCompletion(e.target.value);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("entregando");
-    //navigate(`/game/${params.id}`)
+   
+   
     const newComment = {
       gameId: params.id,
       completionTime:completion
@@ -27,6 +27,7 @@ function FormCompletion() {
       );
       
   } catch (error) {
+    navigate("/error")
   }};
 
  
@@ -53,14 +54,8 @@ function FormCompletion() {
       <input type="radio" id=">50" name="completionTime" value=">50" onChange={handleCompletion} />
       <label htmlFor=">50"> Mas de 50 horas</label><br></br>
       
-      <button>aiuda</button>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <button onClick={navigate(0)} className="botoncito">send</button>
+    
     </form>
     </div>
 

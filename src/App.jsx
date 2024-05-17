@@ -33,20 +33,7 @@ function App() {
  
 
 
-  //useState para pasar como props
-/*  const [gamesList, setGamesList] = useState(null)
-
-  useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/games?key=${import.meta.env.VITE_API_KEY}`)
-    .then((response)=>{
-      //console.log(response)
-      props.setGamesList(response.data.results)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-
-  },[])*/
+  
 
   return (
 
@@ -68,6 +55,7 @@ function App() {
         <Route path="/game-reviews/:id" element={<GameReviews />} />
         <Route path="/game-reviews/" element={<GameReviews />} />
         <Route path="/game-completion/:id" element={<GameCompletion />} />
+        <Route path="/game-completion/" element={<GameCompletion />} />
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<About />} />

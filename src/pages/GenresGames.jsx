@@ -6,69 +6,70 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
 import Button from "react-bootstrap/Button";
+import { Navigate } from "react-router-dom";
 
 function GenresGames() {
   const params = useParams();
 
-  const [genresGames, setGenresGames] = useState(null)
+  const [genresGames, setGenresGames] = useState(null);
   const [currentPage, setCurrentPage] = useState(1); //página actual de juegos
   const [totalGames, setTotalGames] = useState(0); //aquí medimos todos los juegos para hacer la media de las páginas, cada página da 20 juegos.
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/games?genres=${params.id}&key=${import.meta.env.VITE_API_KEY}&page=${currentPage}`)
+    axios
+      .get(
+        `${import.meta.env.VITE_API_URL}/games?genres=${params.id}&key=${
+          import.meta.env.VITE_API_KEY
+        }&page=${currentPage}`
+      )
       .then((response) => {
         setGenresGames(response.data.results);
         setTotalGames(response.data.count); //contamos la cantidad de juegos
-        
       })
       .catch((error) => {
-        console.log(error);
-        Navigate("/error")
+        Navigate("/error");
       });
   }, []);
 
   if (genresGames === null) {
-    return <PacmanLoader 
-    className="pacman"
-    color={"yellow"} 
-    size={50} 
-    />;
+    return <PacmanLoader className="pacman" color={"yellow"} size={50} />;
   }
 
   return (
     <div className="custom-container">
       {genresGames.map((eachGame, i) => {
-        let ratingColorClass = ""
-        if(eachGame.rating >=0 && eachGame.rating <=2){
-          ratingColorClass = "rating bronze"
-        }else if (eachGame.rating > 2 && eachGame.rating <= 4){
-          ratingColorClass = "rating silver"
-        }else if (eachGame.rating > 4 && eachGame.rating <= 5){
-          ratingColorClass = "rating gold"
+        let ratingColorClass = "";
+        if (eachGame.rating >= 0 && eachGame.rating <= 2) {
+          ratingColorClass = "rating bronze";
+        } else if (eachGame.rating > 2 && eachGame.rating <= 4) {
+          ratingColorClass = "rating silver";
+        } else if (eachGame.rating > 4 && eachGame.rating <= 5) {
+          ratingColorClass = "rating gold";
         }
         return (
           <div key={i}>
-            <Link to={"/game/" + eachGame.id}
-            className="card">
+            <Link to={"/game/" + eachGame.id} className="card">
               <div className="game-card">
                 <img
                   src={eachGame.background_image}
                   alt={"gamename" + eachGame.name}
                 />
                 <h3>{eachGame.name}</h3>
-                
+
                 <p className={ratingColorClass}>{eachGame.rating}</p>
               </div>
             </Link>
           </div>
         );
       })}
-      <div className="pagination"> {/* paginación, con botones*/}
+      <div className="pagination">
+        {" "}
+        {/* paginación, con botones*/}
         <Button
           variant="outline-primary"
           disabled={currentPage === 1}
-          onClick={() => setCurrentPage(currentPage - 1)} 
-          >
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
           {/* se desactiva si currentPage es 1. página actual -1 para back*/}
           Back
         </Button>
