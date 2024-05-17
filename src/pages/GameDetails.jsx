@@ -11,7 +11,7 @@ import EditReview from "../components/EditReview";
 function GameDetails() {
   const params = useParams();
   const navigate = useNavigate();
-  console.log(params);
+ 
   const [game, setGame] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [completions, setCompletions] = useState([]);
@@ -25,7 +25,7 @@ function GameDetails() {
   }, [params.id]);
 
   const reviewId = () => {
-    console.log(reviews);
+    
   };
   reviewId();
   const getReviews = () => {
@@ -34,17 +34,21 @@ function GameDetails() {
       .then((response) => {
         setReviews(response.data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        navigate("/error")
+      });
   };
   const deleteCompletion = async (id) => {
-   console.log(id);
+  
     try {
       await axios.delete(`${import.meta.env.VITE_API_BACKEND}/completions/${
         id
       }
 `);
   navigate(0)
-    } catch (error) {}
+    } catch (error) {
+      navigate("/error")
+    }
   };
 
   const getCompletions = () => {
@@ -55,7 +59,9 @@ function GameDetails() {
       .then((response) => {
         setCompletions(response.data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        navigate("/error")
+      });
   };
   const getData = () => {
     axios
@@ -66,36 +72,38 @@ function GameDetails() {
       )
 
       .then((response) => {
-        console.log(response);
+        
         setGame(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        navigate("/error");
       });
   };
 
   if (game === null) {
-    return <PacmanLoader class="pacman" color={"yellow"} size={50} />;
+    return <PacmanLoader className="pacman" color={"yellow"} size={50} />;
   }
   return (
     <div>
+      
       <p>GameDetails</p>
 
       <div className="game-card">
-        <img
+        <img className="game-details-img"
           src={game.background_image}
-          style={{ height: "100px" }}
           alt={game.name}
         />
+        <div className="game-description">
         <h3>{game.name}</h3>
         <hr />
         <div dangerouslySetInnerHTML={{ __html: game.description }} />;
         <hr />
-        <h4>{game.released}</h4>
-        <h4>{game.rating}</h4>
+        <h4>Released in: {game.released}</h4>
+        <h4>Rating: {game.rating}/5</h4>
+        </div>
       </div>
-      <Link to={"/game-reviews/" + game.id}> REVIEWS</Link>
-      <Link to={"/game-completion/" + game.id}>COMPLETION</Link>
+      {/*<Link to={"/game-reviews/" + game.id}> REVIEWS</Link>
+      <Link to={"/game-completion/" + game.id}>COMPLETION</Link>*/}
 
       {reviews.map((eachReview, i) => {
         return (
@@ -116,7 +124,7 @@ function GameDetails() {
             <p>{eachReview.ratings}</p>
 
             <Link to={`/edit-review/${eachReview.id}`}>
-              <button>Edit Comment</button>
+              <button className="botoncito">Edit Comment</button>
             </Link>
             {/*  <Link to={`/game/${params.id}`}>
               <button onClick={()=> handleDelete(eachReview.id)}>Delete</button>
@@ -127,13 +135,13 @@ function GameDetails() {
 
       {completions.map((eachCompletion, i) => {
         return (
-          <div key={i} className="completions">
+          <div key={i} className="card-completions">
             <p> 
               <b>Completion</b>
             </p>
             <p>{eachCompletion.completionTime}</p>
 
-            <button onClick={()=>{deleteCompletion(eachCompletion.id)}}>Delete</button>
+            <button className="botoncito" onClick={()=>{deleteCompletion(eachCompletion.id)}}>Delete</button>
           </div>
         );
       })}

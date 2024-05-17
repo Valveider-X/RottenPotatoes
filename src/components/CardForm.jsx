@@ -1,20 +1,19 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import FormReview from './FormReview';
 import { PacmanLoader } from 'react-spinners';
-axios
+import { Navigate } from 'react-router-dom';
 
-function CardForm(props) {
+function CardForm() {
 const [comment, setComment]=useState(null)
 useEffect(()=>{
 
 axios.get(`${import.meta.env.VITE_API_BACKEND}/reviews`)
 .then((response)=>{
-    console.log(response.data);
+    
     setComment(response.data)
 
 }).catch((error)=>{
-    console.log(error);
+  navigate("/error")
 })
 
 

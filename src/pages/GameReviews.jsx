@@ -15,7 +15,7 @@ function GameReviews() {
     })
     .catch((error)=>{
       Navigate("/error")
-      console.log(error)
+  
     })
   },[])
 
@@ -23,17 +23,17 @@ function GameReviews() {
     <div className="review-list">
       {reviewListValue.map((eachReview, i)=>{
         return(
-          <div key={i}>
-            <Link to={"/game-reviews"}
-            className="card">
+          <div key={i} className="card">
+            
+            
               <div className="review-card">
                 <h3>{eachReview.name}</h3>
-                <p>{eachReview.comments}</p>
-                <p>{eachReview.rating}</p>
+                <p className="review-p" style={{color: "white"}}>{eachReview.comment}</p>
+                <p className="review-p" style={{color: "white"}}>{eachReview.ratings}</p>
               </div>
 
 
-            </Link>
+            
             </div>
         )
       })}

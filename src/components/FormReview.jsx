@@ -3,6 +3,11 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import EditReview from "./EditReview";
+import Bravas5 from "../assets/images/bravas5.png";
+import Bravas4 from "../assets/images/fritas4.png";
+import Bravas3 from "../assets/images/chips3.png";
+import Bravas2 from "../assets/images/cocidas2.png";
+import Bravas1 from "../assets/images/crudas1.png";
 
 function FormReview(props) {
   const params = useParams();
@@ -12,20 +17,20 @@ function FormReview(props) {
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
-    // console.log("escribiendo", e.target.value);
+
     setNameValue(e.target.value.toUpperCase());
   };
   const handleCommentChange = (e) => {
     setCommentValue(e.target.value.toUpperCase());
   };
   const handleTopping = (e) => {
-    // console.log("point");
+   
     setTopping(e.target.value);
   };
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("entregando");
+    
     //navigate(`/game/${params.id}`)
 
     const newComment = {
@@ -39,17 +44,17 @@ function FormReview(props) {
         `${import.meta.env.VITE_API_BACKEND}/reviews`,
         newComment
       );
-      console.log("tarea creada");
+      
       props.getReviews();
     } catch (error) {
-      //console.log(error);
+      navigate("/error")
+      
     }
-    //console.log(newComment);
+   
   };
   return (
-    <div>
-      FormReview
-      <h2>Review</h2>
+    <div className="form-reviews">
+      <h2>Add Review</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label value={params.id}></label>
@@ -76,21 +81,22 @@ function FormReview(props) {
         <div className="card-form">
           <label>Potatoes Rating:</label>
           <br />
+          <div className="bravas-rating"></div>
           <input type="radio" name="1" value={1} onChange={handleTopping}></input>
-          <label htmlFor="1">1</label>
+          <label htmlFor="1">1<img src={Bravas1} alt="patata cruda" style={{ width: "30px" }}/></label>
           <br />
 
           <input type="radio" name="1" value={2} onChange={handleTopping}></input>
-          <label htmlFor="2">2</label>
+          <label htmlFor="2">2<img src={Bravas2} alt="patata cocida" style={{ width: "30px" }}/></label>
           <br />
           <input type="radio" name="1" value={3} onChange={handleTopping}></input>
-          <label htmlFor="3">3</label>
+          <label htmlFor="3">3<img src={Bravas3} alt="patatas chips" style={{ width: "30px" }}/></label>
           <br />
           <input type="radio" name="1" value={4} onChange={handleTopping}></input>
-          <label htmlFor="4">4</label>
+          <label htmlFor="4">4<img src={Bravas4} alt="patatas fritas" style={{ width: "30px" }}/></label>
           <br />
           <input type="radio" name="1" value={5} onChange={handleTopping}></input>
-          <label htmlFor="5">5</label>
+          <label htmlFor="5">5<img src={Bravas5} alt="patatas bravas" style={{ width: "30px" }}/></label>
         </div>
 
         <button className="botoncito">Are you sure?</button>
