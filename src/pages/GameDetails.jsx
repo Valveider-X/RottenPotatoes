@@ -36,13 +36,14 @@ function GameDetails() {
       })
       .catch((error) => {});
   };
-  const deleteCompletion = async (e) => {
-    e.preventDefault();
+  const deleteCompletion = async (id) => {
+   console.log(id);
     try {
       await axios.delete(`${import.meta.env.VITE_API_BACKEND}/completions/${
-        completions.index
+        id
       }
 `);
+  navigate(0)
     } catch (error) {}
   };
 
@@ -98,7 +99,7 @@ function GameDetails() {
 
       {reviews.map((eachReview, i) => {
         return (
-          <div key={i}>
+          <div key={i} className="reviews">
             <p>
               <b>Autor:</b>
             </p>
@@ -126,13 +127,13 @@ function GameDetails() {
 
       {completions.map((eachCompletion, i) => {
         return (
-          <div key={i}>
-            <p>
+          <div key={i} className="completions">
+            <p> 
               <b>Completion</b>
             </p>
             <p>{eachCompletion.completionTime}</p>
 
-            <button onClick={deleteCompletion}>Delete</button>
+            <button onClick={()=>{deleteCompletion(eachCompletion.id)}}>Delete</button>
           </div>
         );
       })}
