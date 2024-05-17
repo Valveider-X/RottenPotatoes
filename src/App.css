@@ -16,6 +16,26 @@ body{
   color: #fff;
  
 }
+
+.patata-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  
+
+}
+.patata-title {
+  margin: 0 10px;
+}
+
+.pics{
+  
+  max-width: 75%;
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+}
 .review-card{
   color: #fff;
   font-size: 0.8em;
